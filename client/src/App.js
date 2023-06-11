@@ -3,14 +3,15 @@ import { Container, AppBar, Typography, Grow, Grid} from '@material-ui/core';
 import memories from './images/memories.png';
 import Posts from './components/Posts/Posts';
 import Forms from './components/Forms/Form.js';
-
+import useStyles from './styles';
 
 const App =() => {
+    const classes = useStyles();
     return(
        <Container maxwidth="lg">
-        <AppBar position="static" color="inherit">
-            <Typography varient="h2" align="center">Memories</Typography>
-             <img src={memories} alt="memories" height="60" /> 
+        <AppBar className={classes.appBar} position="static" color="inherit">
+            <Typography className={classes.heading} varient="h2" align="center">Memories</Typography>
+             <img className={classes.image} src={memories} alt="memories" height="60" /> 
         </AppBar>
         <Grow in>
             <Container>
