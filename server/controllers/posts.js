@@ -3,8 +3,8 @@ import PostMessage from "../modules/postMessage.js";
 
 export const getPosts = async (req,res)=>{
     try{
-        const PostMessage = await PostMessage.find();
-        res.status(200).json(PostMessage);
+        const PostMessages = await PostMessage.find();
+        res.status(200).json(PostMessages);
     } catch (error){
         res.status(404).json({message: error.message});
     }
@@ -12,7 +12,7 @@ export const getPosts = async (req,res)=>{
 
 
 export const createPost =  async (req,res) => {
-    const body = req.body; 
+    const post = req.body; 
     const newPost = new PostMessage(post);
 
     try{
