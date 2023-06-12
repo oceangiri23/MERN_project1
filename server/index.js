@@ -1,7 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express";
 import cors from "cors";
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 import  {MongoClient}  from "mongodb";
 import postRoutes from "./routes/posts.js";
 
@@ -15,13 +15,11 @@ import postRoutes from "./routes/posts.js";
  app.use('/posts',postRoutes);
 
 
-
+//  const PORT = process.env.PORT || 3000 ;
 // const CONNECTION_URL = 'mongodb+srv://sagargiri31:database31@sagargiri.16uljga.mongodb.net/'
-const url = "mongodb://0.0.0.0:27017";
+ /* const url = "mongodb://0.0.0.0:27017";
 let database = "mern";
 const client = new MongoClient(url);
-
-//  const PORT = process.env.PORT || 3000 ;
 
 async function getData(){
     let result =  await client.connect();
@@ -32,8 +30,13 @@ async function getData(){
     console.log(response)
 }
 
-getData();
-
+getData(); */
+ mongoose.connect("mongodb://0.0.0.0:27017")
+ .then (()=>{
+    console.log('mongodb connected');
+ }).catch(()=>{
+    console.log('error');
+ })
 
 // to connect to atlas
 // mongoose.connect(CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true })
